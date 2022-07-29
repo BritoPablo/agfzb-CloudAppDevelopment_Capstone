@@ -28,7 +28,8 @@ DEBUG = True
 APPEND_SLASH = True
 
 ALLOWED_HOSTS = ['localhost','localhost:8000','yluod.us-south.cf.appdomain.cloud', '127.0.0.1']
-
+ALLOWED_HOSTS = ['localhost', 'localhost:8000', '127.0.0.1', "pbritoj-django.eu-gb.mybluemix.net", "https://pbritoj-8000.theiadocker-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai"]
+CSRF_TRUSTED_ORIGINS = ['https://pbritoj-8000.theiadocker-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai']
 
 # Application definition
 
