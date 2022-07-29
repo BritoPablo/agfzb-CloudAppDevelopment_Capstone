@@ -14,12 +14,76 @@
 </head>
 
     <body>
-    <!-- Remove this line the first time you edit this file -->
-     This is the index page of your Django app!
-    <!--Add a nav bar here -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Cars Dealership</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse d-flex justify-content-between align-items-center" id="navbarNavDropdown">
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{%url 'djangoapp:about'%}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{%url 'djangoapp:contact'%}">Contact</a>
+                </li>
+              </ul>
+              {% if user.is_authenticated %}
+              <div>
+                <a class="btn btn-link" href="#">{{ user.first_name }}({{ user.username }})</a>
+                <a href="{% url 'djangoapp:logout' %}">Logout</a>
+              </div>
+              {% else %}
+              <form action="{% url 'djangoapp:login' %}"  method="post" class="form-inline my-2 my-lg-0">
+                {% csrf_token %}
+                    <input type="text" class="form-control m-sm-2" placeholder="Username" name="username" required>
+                    <input class="form-control mr-sm-2 m-sm-2" type="password" placeholder="password" name="psw" required>
+                    <button class="btn btn-outline-success m-sm-2 my-2 my-sm-0" type="submit">Log in</button>
+                    <a class="btn btn-outline-danger m-sm-2 my-2 my-sm-0" href="{% url 'djangoapp:registration' %}">Sign Up</a>
+                </form>
+                {% endif %}
+            </div>
+          </nav>
 
     <!--Add a dealer table here -->
 
+    <div class="container">
+        <table class="table" id="table" data-filter-control="true">
+            <thead class="thead-dark">
+                <tr>
+                    <th data-field="id">ID</th>
+                    <th data-field="full_name">Dealer Name</th>
+                    <th data-field="city">City</th>
+                    <th data-field="address">Address</th>
+                    <th data-field="zip">Zip</th>
+                    <th data-field="state" data-filter-control="select">State</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for dealer in dealerships %}
+                    <tr>
+                        <td>{{dealer.id}}</td>
+                        <td><a href="{% url 'djangoapp:dealer_details' dealer.id %}">
+                            {{dealer.full_name}}
+                        </a></td>
+                        <td>{{dealer.city}}</td>
+                        <td>{{dealer.address}}</td>
+                        <td>{{dealer.zip}}</td>
+                        <td>{{dealer.st}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
     </body>
+
+
+    <script>
+        $(function() {
+          $('#table').bootstrapTable()
+        })
+      </script>
 
 </html>

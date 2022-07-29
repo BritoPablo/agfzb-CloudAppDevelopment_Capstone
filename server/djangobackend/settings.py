@@ -27,7 +27,7 @@ DEBUG = True
 
 APPEND_SLASH = True
 
-ALLOWED_HOSTS = ["localhost"]
+ALLOWED_HOSTS = ['localhost','localhost:8000','yluod.us-south.cf.appdomain.cloud', '127.0.0.1']
 
 
 # Application definition
