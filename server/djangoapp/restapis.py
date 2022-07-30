@@ -15,7 +15,7 @@ def get_request(url, dealer_id='', **kwargs):
     try:
         # Call get method of requests library with URL and parameters
         if dealer_id:
-            payload = {'id': dealer_id}
+            payload = {'dealerId': dealer_id}
             response = requests.get(url, headers={'Content-Type': 'application/json'},
                                     params=payload)
         else :
@@ -78,7 +78,6 @@ def get_dealers_from_cf(url, **kwargs):
 # dealer by id
 
 def get_dealer_by_id_from_cf(url, dealer_id):
-    print("*************************228>")
     json_result = get_request(url, id=dealer_id)
     if json_result:
         dealer_doc = json_result["body"][0]
@@ -111,6 +110,7 @@ def get_dealer_reviews_from_cf(url, dealer_id, **kwargs):
     
     if json_result:
         # Get the row list in JSON as dealers
+        print(json_result)
         reviews = json_result["body"]["data"]["docs"]
         
         # For each review object
