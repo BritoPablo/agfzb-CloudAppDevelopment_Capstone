@@ -27,8 +27,14 @@ DEBUG = True
 
 APPEND_SLASH = True
 
+<<<<<<< HEAD
 ALLOWED_HOSTS = ['localhost','localhost:8000','pbj-django.apic.mybluemix.net', '127.0.0.1']
 
+=======
+ALLOWED_HOSTS = ['localhost','localhost:8000','yluod.us-south.cf.appdomain.cloud', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', 'localhost:8000', '127.0.0.1', "pbritoj-django.eu-gb.mybluemix.net", "https://pbritoj-8000.theiadocker-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai"]
+CSRF_TRUSTED_ORIGINS = ['https://pbritoj-8000.theiadocker-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai']
+>>>>>>> 03195e6991d99a7696e4d88beec60ea3a84c61c0
 
 # Application definition
 
