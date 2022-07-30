@@ -27,7 +27,7 @@ DEBUG = True
 
 APPEND_SLASH = True
 
-ALLOWED_HOSTS = ['localhost','localhost:8000','yluod.us-south.cf.appdomain.cloud', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost','localhost:8000','pbj-django.apic.mybluemix.net', '127.0.0.1']
 
 
 # Application definition

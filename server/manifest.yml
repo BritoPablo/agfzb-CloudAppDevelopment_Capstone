@@ -1,11 +1,11 @@
   applications:
   - name: djangoapp
     routes:
-      - route: yluod.us-south.cf.appdomain.cloud
+      - route: pbj-django.apic.mybluemix.net
     memory: 128M
     buildpack: python_buildpack
   - name: djangoapp-nginx
     routes:
-      - route: yluod.us-south.cf.appdomain.cloud/static
+      - route: pbj-django.apic.mybluemix.net/static
     memory: 128M
     buildpack: staticfile_buildpack
